@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Governance Gap in Healthcare AI</title>
+<meta name="description" content="Why governance standards like ISO/IEC 42001 can't, by themselves, tell you whether a healthcare AI model has actually been tested against data poisoning or backdoor attacks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="console-header">
+  <div class="wrap bar">
+    <a class="id" href="../index.html">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span class="name">Suresh Tamang</span>
+    </a>
+    <nav>
+      <a href="../index.html">About</a>
+      <a href="../writing.html" class="active">Writing</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="article-head">
+    <span class="label">Thought leadership · 2026</span>
+    <h1 style="margin-top:14px;">The Governance Gap in Healthcare AI: Why Policy Alone Can't Secure Medical Machine Learning</h1>
+    <p class="byline">By Suresh Tamang</p>
+  </div>
+
+  <article class="article-body">
+    <p>Over the past year, U.S. policy on AI security has moved faster than most healthcare organizations have noticed. In June 2026, Executive Order 14409, <em>Promoting Advanced Artificial Intelligence Innovation and Security</em>, directed federal agencies to "facilitate access to cybersecurity tools and services... for agencies, State and local authorities, and operators of critical infrastructure such as rural hospitals, community banks, and local utilities" — and called for advanced AI vulnerability detection and a federal clearinghouse to coordinate it. A few months earlier, the Health Sector Coordinating Council's Cybersecurity Working Group — a coalition of more than 400 healthcare organizations — began publishing guidance that names "model poisoning, data corruption, and adversarial attacks" as concrete threat categories healthcare organizations need defenses against, and flags "data poisoning" and "model manipulation" specifically as risks to secure-by-design, AI-enabled medical devices.</p>
+
+    <p>Read together, these aren't isolated policy documents. They're a signal that the institutions responsible for healthcare security have concluded, independently and around the same time, that AI models deployed in clinical settings are a genuine attack surface — not a hypothetical one. That conclusion doesn't depend on any single administration's priorities, either: even independent of EO 14409 or whatever comes after it, the underlying technical problem — that AI is being adopted into critical healthcare infrastructure faster than the field has built ways to independently verify its security — remains exactly as urgent.</p>
+
+    <h2>What the policy layer doesn't provide</h2>
+
+    <p>At the same time, the AI governance conversation has been consolidating around a different kind of standard: ISO/IEC 42001, the AI management system standard now widely described as the emerging benchmark for how organizations govern AI responsibly. It's a meaningful development — it gives organizations a structured way to document policies, assign accountability, and monitor AI systems over their lifecycle, much as ISO/IEC 27001 did for information security.</p>
+
+    <p>But a management-system standard answers a different question than the one hospitals actually need answered before trusting a diagnostic model. ISO 42001 and frameworks like it can tell you an organization has a policy for reviewing its AI systems. They cannot, on their own, tell you whether a specific deployed model has actually been tested against data poisoning, whether its training pipeline was validated against tampering, or whether a backdoor trigger could sit undetected in a model that passes every ordinary accuracy benchmark. That's not a criticism of governance frameworks — it's a description of what they were built to do. NIST's AI Risk Management Framework makes the same division explicit in its own structure: Govern sets policy, Map identifies where risk lives, but it's the <em>Measure</em> function — actual technical testing — that determines whether a system is safe, and Measure is the function healthcare AI deployments are, in practice, doing the least of.</p>
+
+    <h2>The gap this leaves</h2>
+
+    <p>The result is a healthcare AI ecosystem where governance maturity and technical security maturity are being allowed to drift apart. An organization can be fully ISO 42001-compliant, with a documented AI policy and a named accountable executive, while still deploying a diagnostic model that has never been tested for whether its training data was tampered with or whether a hidden trigger pattern could cause it to misclassify on command. For a hospital's billing system, that gap is a compliance risk. For a hospital's diagnostic imaging pipeline, it's a patient-safety risk with no independent check on it at all.</p>
+
+    <p>This is precisely the space EO 14409 gestures toward when it calls for expanding vulnerability-detection tools to rural hospitals and other under-resourced critical infrastructure operators, and precisely the space the HSCC's own guidance names when it flags data poisoning and model manipulation as threats healthcare organizations need "secure by design" defenses against. What's largely missing is the connective layer: accessible, independent technical tools that actually test a healthcare AI model against these named threats and produce evidence — not just a policy statement, but a result — that the model has been checked.</p>
+
+    <h2>Where this is headed</h2>
+
+    <p>There's a useful analogy in how other industries closed comparable gaps. Underwriters Laboratories didn't replace electrical codes; it gave manufacturers and regulators a way to independently verify that a specific product actually met them. SOC 2 didn't replace an organization's security policy; it gave customers a way to verify the policy was actually being followed in practice. Healthcare AI is at the point those industries were before that independent verification layer existed — real named risks, real policy attention, and not yet a widely adopted, accessible way to independently test whether a given AI system is actually secure against them.</p>
+
+    <p>Closing that gap is technical work as much as it is policy work: building and validating the detection methods themselves — for data poisoning, backdoor triggers, and adversarial manipulation — in a way that maps cleanly onto the frameworks (NIST AI RMF, MITRE ATLAS) regulators and health systems already use, so the result is something a hospital's security team can actually act on rather than another abstract risk score. That's the layer worth building next, and it's where the next phase of healthcare AI security has to go if the governance progress of the last year is going to mean anything at the point where it matters most — an actual model, making an actual clinical decision.</p>
+
+    <div class="article-author">
+      <div class="headshot-frame">
+        <span class="bracket tl"></span><span class="bracket tr"></span>
+        <span class="bracket bl"></span><span class="bracket br"></span>
+        <div class="placeholder-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6"/>
+            <path d="M4.5 20c1.4-4 4-6 7.5-6s6.1 2 7.5 6"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <p class="name">Suresh Tamang</p>
+        <p>Graduate researcher in Artificial Intelligence at the University of the Cumberlands, based in Fort Worth, Texas, focused on the security and trustworthiness of AI systems deployed in healthcare and other critical infrastructure.</p>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="console-footer wrap">
+  <span>© 2026 Suresh Tamang</span>
+  <span class="mono">STATUS: ACTIVE</span>
+</footer>
+</body>
+</html>

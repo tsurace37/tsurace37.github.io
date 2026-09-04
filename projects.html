@@ -4,12 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Suresh Tamang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html">Suresh Tamang</a>
+
+<header class="console-header">
+  <div class="wrap bar">
+    <a class="id" href="index.html">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span class="name">Suresh Tamang</span>
+    </a>
     <nav>
       <a href="index.html">About</a>
       <a href="writing.html">Writing</a>
@@ -19,28 +26,42 @@
   </div>
 </header>
 
-<main class="wrap">
-  <h1>Projects</h1>
-  <p class="lede">Open-source tools for detecting and defending against security threats to AI systems in healthcare and critical infrastructure.</p>
+<main class="wrap" style="padding-top:56px;">
+  <div class="section-head">
+    <h2>Projects</h2>
+    <span class="label">1 entry</span>
+  </div>
+  <p class="intro" style="margin-bottom:28px;">Open-source tools for detecting and defending against security threats to AI systems in healthcare and critical infrastructure.</p>
 
-  <ul class="pub-list">
-    <li class="pub pub-pending">
-      <h2>AI Model Poisoning &amp; Backdoor Detection Scanner</h2>
-      <p class="meta">In development · open source, coming to GitHub</p>
-      <p>
+  <div class="entry-list">
+    <div class="entry is-pending">
+      <div class="entry-meta">
+        <span class="pill status-pending">In development</span>
+        <span class="label">Open source · GitHub</span>
+      </div>
+      <h3>AI Model Poisoning &amp; Backdoor Detection Scanner</h3>
+      <p class="desc">
         An open-source scanner that detects data poisoning and backdoor triggers in ML
-        classification pipelines, combining spectral signature analysis and activation clustering.
-        Validated against public healthcare-imaging benchmarks and one non-healthcare
-        critical-infrastructure-relevant dataset, with results reported against MITRE ATLAS
-        technique IDs and the NIST AI RMF "Measure" function.
+        classification pipelines, combining spectral signature analysis and activation
+        clustering. Validated against public healthcare-imaging benchmarks and one
+        non-healthcare critical-infrastructure-relevant dataset, with results reported
+        against MITRE ATLAS technique IDs and the NIST AI RMF "Measure" function.
       </p>
-      <p><a href="https://github.com/tsurace37" target="_blank" rel="noopener">Repository link — coming soon</a></p>
-    </li>
-  </ul>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">Spectral signatures</span>
+        <span class="tag">Activation clustering</span>
+        <span class="tag">MITRE ATLAS AML.T0020</span>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn" style="margin-top:20px;" href="https://github.com/tsurace37" target="_blank" rel="noopener">Repository — coming soon →</a>
 </main>
 
-<footer class="wrap">
-  <p>&copy; 2026 Suresh Tamang.</p>
+<footer class="console-footer wrap">
+  <span>© 2026 Suresh Tamang</span>
+  <span class="mono">STATUS: ACTIVE</span>
 </footer>
 </body>
 </html>

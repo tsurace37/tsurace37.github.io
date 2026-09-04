@@ -3,14 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Suresh Tamang — AI Security & Assurance</title>
-<meta name="description" content="Suresh Tamang: AI graduate researcher building security and assurance tools for AI systems in healthcare and critical infrastructure.">
+<title>Suresh Tamang</title>
+<meta name="description" content="Suresh Tamang — AI security and assurance research: detecting data poisoning, backdoor attacks, and adversarial vulnerabilities in AI systems deployed in healthcare and critical infrastructure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html">Suresh Tamang</a>
+
+<header class="console-header">
+  <div class="wrap bar">
+    <a class="id" href="index.html">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span class="name">Suresh Tamang</span>
+    </a>
     <nav>
       <a href="index.html" class="active">About</a>
       <a href="writing.html">Writing</a>
@@ -20,55 +27,101 @@
   </div>
 </header>
 
+<section class="scan-panel">
+  <canvas id="scan-canvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <span class="eyebrow">AI security &amp; assurance</span>
+    <h1 class="hero-title">Verifying that AI systems in healthcare are actually <span class="accent-word">secure</span> — not just governed.</h1>
+    <p class="hero-lede">
+      I build detection methods for data poisoning, backdoor attacks, and adversarial
+      vulnerabilities in machine learning systems deployed in healthcare and critical
+      infrastructure — and work toward making that verification as routine as the
+      governance frameworks (NIST AI RMF, ISO/IEC 42001) that already call for it.
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" href="writing.html">Read the research →</a>
+      <a class="btn" href="projects.html">View projects</a>
+    </div>
+  </div>
+</section>
+
 <main class="wrap">
-  <section class="hero">
-    <h1>AI Security &amp; Assurance for Healthcare and Critical Infrastructure</h1>
-    <p class="lede">
-      I build detection methods and tools for identifying data poisoning, backdoor attacks, and
-      adversarial vulnerabilities in machine learning systems deployed in healthcare and other
-      critical infrastructure sectors — and work toward making that kind of technical verification
-      as routine as the governance frameworks (NIST AI RMF, ISO/IEC 42001) that already ask for it.
-    </p>
+
+  <section class="section" id="about">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="label">Profile</span>
+    </div>
+    <div class="about-grid">
+      <div class="headshot-frame">
+        <span class="bracket tl"></span><span class="bracket tr"></span>
+        <span class="bracket bl"></span><span class="bracket br"></span>
+        <div class="placeholder-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6"/>
+            <path d="M4.5 20c1.4-4 4-6 7.5-6s6.1 2 7.5 6"/>
+          </svg>
+          <div class="placeholder-label">Headshot<br>pending</div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p>
+          I'm a graduate researcher in Artificial Intelligence at the University of the
+          Cumberlands, based in Fort Worth, Texas. My work focuses on the security and
+          trustworthiness of AI systems deployed in healthcare and other critical
+          infrastructure, with an emphasis on detecting data poisoning, backdoor attacks,
+          and adversarial vulnerabilities in deployed machine learning models.
+        </p>
+        <p>
+          I'm building open-source tools aimed at making independent AI security assurance
+          practical for organizations that can't rely on governance policy alone — the
+          technical layer underneath frameworks like NIST's AI Risk Management Framework
+          and ISO/IEC 42001.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <section class="about">
-    <h2>About</h2>
-    <p>
-      I'm a graduate researcher in Artificial Intelligence at the University of the Cumberlands,
-      based in Fort Worth, Texas. My work focuses on the security and trustworthiness of AI systems
-      deployed in healthcare and other critical infrastructure, with an emphasis on detecting data
-      poisoning, backdoor attacks, and adversarial vulnerabilities in deployed machine learning models.
-      I'm building open-source tools aimed at making independent AI security assurance practical for
-      organizations that can't rely on governance policy alone.
-    </p>
-    <p>
-      This site collects my published writing, research, and open-source projects in this area as
-      the work develops.
-    </p>
+  <section class="section">
+    <div class="section-head">
+      <h2>Currently</h2>
+      <span class="label">Status</span>
+    </div>
+    <div class="readout-list">
+      <div class="row">
+        <span class="tick">✓</span>
+        <p>Writing on the gap between AI governance frameworks and technical security verification in healthcare AI.</p>
+      </div>
+      <div class="row">
+        <span class="tick">✓</span>
+        <p>Developing an open-source detection tool for data poisoning and backdoor attacks in ML classification pipelines.</p>
+      </div>
+      <div class="row">
+        <span class="tick">✓</span>
+        <p>Building toward a technical assurance framework mapped to NIST AI RMF and MITRE ATLAS.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="highlights">
-    <h2>Currently</h2>
-    <ul>
-      <li>Writing on the gap between AI governance frameworks and technical security verification in healthcare AI.</li>
-      <li>Developing an open-source detection tool for data poisoning and backdoor attacks in ML classification pipelines.</li>
-      <li>Building toward a technical assurance framework mapped to NIST AI RMF and MITRE ATLAS.</li>
-    </ul>
+  <section class="section" id="contact">
+    <div class="section-head">
+      <h2>Contact</h2>
+      <span class="label">Channels</span>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-chip" href="https://github.com/tsurace37" target="_blank" rel="noopener">GitHub</a>
+      <a class="contact-chip" href="mailto:YOUR-EMAIL@example.com">Email</a>
+      <a class="contact-chip" href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <ul class="links">
-      <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/tsurace37" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="https://scholar.google.com/citations?user=YOUR-SCHOLAR-ID" target="_blank" rel="noopener">Google Scholar</a></li>
-      <li><a href="mailto:YOUR-EMAIL@example.com">Email</a></li>
-    </ul>
-  </section>
 </main>
 
-<footer class="wrap">
-  <p>&copy; 2026 Suresh Tamang.</p>
+<footer class="console-footer wrap">
+  <span>© 2026 Suresh Tamang</span>
+  <span class="mono">STATUS: ACTIVE</span>
 </footer>
+
+<script src="scan.js"></script>
 </body>
 </html>
