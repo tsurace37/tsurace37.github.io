@@ -456,6 +456,13 @@ main { padding-bottom: 96px; }
 
 .contact-chip:hover { border-color: var(--accent); color: var(--accent); }
 
+.contact-chip.is-pending {
+  border-style: dashed;
+  color: var(--muted);
+  cursor: default;
+}
+.contact-chip.is-pending:hover { border-color: var(--border); color: var(--muted); }
+
 /* ---------------- Article (long-form) ---------------- */
 
 .article-head {
