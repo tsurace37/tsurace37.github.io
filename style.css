@@ -491,6 +491,13 @@ main { padding-bottom: 96px; }
   margin-top: 18px;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.82rem;
+  color: var(--ink-dim);
+}
+
+.article-head .byline-date {
+  margin-top: 4px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
   color: var(--muted);
 }
 
