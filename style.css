@@ -169,7 +169,8 @@ a:focus-visible, button:focus-visible {
   overflow: hidden;
 }
 
-.scan-panel canvas {
+.scan-panel canvas,
+.scan-strip canvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -180,6 +181,17 @@ a:focus-visible, button:focus-visible {
 .scan-panel .wrap {
   position: relative;
   padding: 72px 28px 56px;
+}
+
+/* Shorter banner variant of the scan panel — same detect/flag/verify
+   motif, sized down for pages that lead with content rather than a
+   hero (Writing, Projects, article heads). No text sits on top of it,
+   so it never competes with reading. */
+.scan-strip {
+  position: relative;
+  height: 96px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .eyebrow {
