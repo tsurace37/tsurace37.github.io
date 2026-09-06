@@ -538,6 +538,15 @@ main { padding-bottom: 96px; }
 
 .article-author p { color: var(--ink-dim); max-width: var(--measure); margin: 0; }
 .article-author .name { color: var(--ink); font-weight: 600; margin-bottom: 4px; }
+.article-author .orcid { margin-bottom: 10px; }
+.article-author .orcid a {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--border);
+}
+.article-author .orcid a:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ---------------- Footer ---------------- */
 
