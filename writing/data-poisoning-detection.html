@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toward Automated Detection of Data Poisoning and Backdoor Attacks in Healthcare Imaging AI</title>
+<meta name="description" content="A proposed detection methodology and evaluation framework combining spectral signature analysis and activation clustering to detect data poisoning and backdoor attacks in healthcare imaging AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="console-header">
+  <div class="wrap bar">
+    <a class="id" href="../index.html">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span class="name">Suresh Tamang</span>
+    </a>
+    <nav>
+      <a href="../index.html">About</a>
+      <a href="../writing.html" class="active">Publications</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="scan-strip"><canvas data-scan data-spacing="36" aria-hidden="true"></canvas></section>
+
+<main class="wrap">
+  <div class="article-head" style="padding-top:40px;">
+    <span class="label">Technical methodology · September 6, 2026</span>
+    <h1 style="margin-top:14px;">Toward Automated Detection of Data Poisoning and Backdoor Attacks in Healthcare Imaging AI: A Proposed Detection Methodology and Evaluation Framework</h1>
+    <p class="byline">By Suresh Tamang</p>
+    <p class="byline-date">September 6, 2026</p>
+  </div>
+
+  <article class="article-body">
+    <p style="font-style:italic; color:var(--muted);">Methodology and evaluation-protocol paper (preprint). This paper proposes and specifies a detection methodology and evaluation plan; it does not yet report empirical results. A follow-up paper reporting results will be published once the described experiments are complete. <strong style="color:var(--accent); font-style:normal;">Submission to TechRxiv is in progress</strong> — a DOI and link will be added here once it's live.</p>
+
+    <h2>Abstract</h2>
+    <p>Machine learning models are increasingly deployed in healthcare imaging pipelines for diagnostic support, yet the security of these models against training-time attacks — particularly data poisoning and backdoor insertion — remains substantially under-tested relative to their growing deployment. Recent healthcare-sector guidance (Health Sector Coordinating Council Cybersecurity Working Group, 2025) and federal policy (Executive Order 14409, 2026) have explicitly named data poisoning and model manipulation as threats requiring dedicated defenses, yet no widely adopted, openly available detection tooling validated specifically on healthcare imaging benchmarks currently exists. This paper proposes a detection methodology combining spectral signature analysis (Tran et al., 2018) and activation clustering (Chen et al., 2018) — two established backdoor-detection techniques not yet systematically benchmarked together on public healthcare imaging datasets — and specifies an evaluation protocol against synthetically poisoned variants of public medical imaging benchmarks alongside a non-healthcare critical-infrastructure-relevant dataset, to test cross-sector generalizability. We frame the resulting evidence output against the NIST AI Risk Management Framework's <em>Measure</em> function and the MITRE ATLAS adversary technique taxonomy, so that results are directly usable by healthcare security teams rather than requiring translation from research notation. This paper presents the methodology and evaluation plan; empirical results will be reported in a follow-up publication.</p>
+
+    <h2>1. Introduction</h2>
+    <p>AI adoption in healthcare imaging — diagnostic support for radiology, dermatology, and pathology — has accelerated faster than the security tooling needed to validate these systems before deployment. This is no longer a theoretical concern: healthcare-sector guidance published in late 2025 by the Health Sector Coordinating Council's Cybersecurity Working Group, a coalition of more than 400 healthcare organizations, explicitly identifies "model poisoning, data corruption, and adversarial attacks" as threats requiring dedicated incident-response and secure-by-design defenses for AI-enabled medical devices. Executive Order 14409 (June 2026) similarly directs federal agencies to expand access to AI vulnerability-detection tools for critical infrastructure operators, explicitly naming rural hospitals among the intended beneficiaries. Independently, recent academic work — Abtahi, Seoane, Pau, and Vega-Barbas's analysis of data poisoning vulnerabilities across healthcare AI architectures (2025/2026) — has begun documenting the scope of the underlying technical vulnerability across a range of clinical AI system designs.</p>
+    <p>What remains missing is the connective layer: an openly available, independently validated detection methodology, benchmarked specifically on healthcare imaging data, that produces output mapped to the frameworks (NIST AI RMF, MITRE ATLAS) that healthcare security and compliance teams already use. This paper's contribution is to specify that methodology and its evaluation protocol precisely enough to be independently reproduced, ahead of reporting results.</p>
+
+    <h2>2. Background and Related Work</h2>
+    <p><strong>Data poisoning and backdoor attacks.</strong> Data poisoning attacks corrupt a model's training data to induce incorrect behavior; backdoor attacks are a stealthier subclass in which a hidden trigger pattern causes targeted misclassification while leaving the model's behavior on clean inputs unaffected, making them difficult to detect through ordinary validation-set accuracy checks.</p>
+    <p><strong>Detection techniques.</strong> Two detection approaches are foundational to this proposal. Tran, Li, and Madry (2018), "Spectral Signatures in Backdoor Attacks" (NeurIPS 2018; arXiv:1811.00636), show that poisoned training examples leave a detectable signature in the spectrum of a network's learned feature representations, enabling identification of poisoned samples without prior knowledge of the trigger. Chen et al. (2018), "Detecting Backdoor Attacks on Deep Neural Networks by Activation Clustering" (arXiv:1811.03728), propose clustering a network's internal activations to separate poisoned from clean examples on the basis that poisoned examples activate the network via a different internal pathway than genuinely-labeled examples, even when final-layer outputs look identical. Both methods are well-established individually; to our knowledge, neither has been systematically benchmarked, combined, or validated specifically against public healthcare imaging datasets, which is the gap this work addresses.</p>
+    <p><strong>Vulnerability landscape.</strong> Abtahi et al.'s security threat analysis (arXiv:2511.11020; published in the <em>Journal of Medical Internet Research</em>, 2026) surveys data poisoning vulnerabilities across a range of healthcare AI architectures and proposes analytical security framework and defense strategies at a conceptual level. This paper is complementary rather than overlapping: where Abtahi et al. analyze and categorize the vulnerability landscape, this work specifies and evaluates a concrete, reproducible detection methodology against it.</p>
+    <p><strong>Policy and governance context.</strong> The NIST AI Risk Management Framework organizes AI risk management into four functions — Govern, Map, Measure, and Manage — of which Measure (technical testing and quantification) is the function this work directly serves; governance frameworks such as ISO/IEC 42001 provide organizational policy structure but do not themselves supply technical validation evidence. MITRE ATLAS catalogs adversary tactics and techniques against AI systems in a structure analogous to MITRE ATT&amp;CK, providing a shared vocabulary for reporting findings that this work adopts for output reporting; the data-poisoning attacks addressed here correspond to MITRE ATLAS technique AML.T0020, which covers the poisoning of a model's training data.</p>
+
+    <h2>3. Proposed Detection Methodology</h2>
+    <p>The proposed pipeline applies spectral signature analysis and activation clustering in combination to a trained image-classification model and its training set, producing (a) a per-sample poisoning-likelihood score and (b) an aggregate model-level risk assessment. Combining both techniques is intended to reduce false negatives relative to either method alone, since the two techniques exploit different structural properties of poisoned data (spectral outliers in feature-space representation vs. divergent activation-clustering behavior).</p>
+    <p>Implementation will use standard convolutional architectures common in medical imaging classification (e.g., ResNet-family models) trained on the target datasets described in Section 4, instrumented to extract the intermediate-layer activations and feature representations both detection methods require.</p>
+
+    <h2>4. Evaluation Plan</h2>
+    <p><strong>Datasets.</strong> Evaluation will use two public benchmarks requiring no data-use agreement or institutional partnership: (1) a public chest X-ray classification dataset (e.g., ChestX-ray14) as the healthcare-imaging benchmark, and (2) one non-healthcare, critical-infrastructure-relevant public dataset (a standard adversarial-ML benchmark or public industrial/anomaly-detection dataset), to test whether detection performance generalizes across the sectors the proposed endeavor targets.</p>
+    <p><strong>Attack simulation.</strong> Because access to real-world poisoned healthcare data is neither available nor desirable to seek out, poisoning will be simulated by injecting synthetic backdoor triggers into training data at varying poisoning rates (e.g., 1%, 5%, 10% of training samples), following established backdoor-injection protocols from the cited prior work, to produce a controlled ground truth against which detection accuracy can be measured.</p>
+    <p><strong>Metrics.</strong> Detection performance will be reported as true-positive and false-positive rates for identifying poisoned samples, at each simulated poisoning rate, alongside the aggregate model-level risk score's correlation with actual poisoning presence. Results will be reported in MITRE ATLAS technique-referenced terms and framed explicitly as NIST AI RMF Measure-function output.</p>
+    <p><strong>Planned release.</strong> The implementation will be released as an open-source tool alongside the results paper, so that findings are independently reproducible and the tool itself is usable by others rather than existing only as a research artifact.</p>
+
+    <h2>5. Discussion and Limitations</h2>
+    <p>This methodology has a deliberate and disclosed limitation: evaluation on synthetically poisoned public benchmarks demonstrates detection capability under controlled conditions but does not, by itself, establish performance against real-world, adversarially-optimized poisoning attempts, which may be designed specifically to evade known detection signatures. This is a limitation shared by essentially all published backdoor-detection literature to date, given the practical and ethical constraints on accessing real poisoned production data, and is disclosed here rather than glossed over. Extending evaluation toward adaptive/adversarially-aware poisoning strategies, and toward real pilot deployments with willing healthcare or critical-infrastructure partners, is identified as future work rather than claimed as already accomplished.</p>
+
+    <h2>6. Conclusion and Future Work</h2>
+    <p>This paper specifies a detection methodology and evaluation protocol for identifying data poisoning and backdoor attacks in healthcare imaging AI, combining two established detection techniques not previously benchmarked together on public healthcare imaging data, and frames its output against frameworks (NIST AI RMF, MITRE ATLAS) already in use by healthcare security teams. Empirical results from executing this protocol, and the accompanying open-source implementation, will be reported in a follow-up publication.</p>
+
+    <h2>References</h2>
+    <p>[1] Tran, B., Li, J., &amp; Madry, A. (2018). Spectral Signatures in Backdoor Attacks. <em>Advances in Neural Information Processing Systems (NeurIPS) 31</em>. arXiv:1811.00636.</p>
+    <p>[2] Chen, B., Carvalho, W., Baracaldo, N., Ludwig, H., Edwards, B., Lee, T., Molloy, I., &amp; Srivastava, B. (2018). Detecting Backdoor Attacks on Deep Neural Networks by Activation Clustering. arXiv:1811.03728.</p>
+    <p>[3] Abtahi, F., Seoane, F., Pau, I., &amp; Vega-Barbas, M. (2026). Data Poisoning Vulnerabilities Across Healthcare AI Architectures: A Security Threat Analysis. <em>Journal of Medical Internet Research</em>, 2026;1:e87969. arXiv:2511.11020.</p>
+    <p>[4] Health Sector Coordinating Council Cybersecurity Working Group. (2025). <em>AI Cybersecurity Guidance for the Health Sector</em> (guidance series, publication beginning November 2025).</p>
+    <p>[5] Executive Order 14409, <em>Promoting Advanced Artificial Intelligence Innovation and Security</em> (June 2, 2026).</p>
+    <p>[6] National Institute of Standards and Technology. <em>AI Risk Management Framework (AI RMF 1.0)</em>.</p>
+    <p>[7] MITRE ATLAS. <em>Adversarial Threat Landscape for Artificial-Intelligence Systems</em>. atlas.mitre.org.</p>
+
+    <div class="article-author">
+      <div class="headshot-frame">
+        <span class="bracket tl"></span><span class="bracket tr"></span>
+        <span class="bracket bl"></span><span class="bracket br"></span>
+        <div class="placeholder-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6"/>
+            <path d="M4.5 20c1.4-4 4-6 7.5-6s6.1 2 7.5 6"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <p class="name">Suresh Tamang</p>
+        <p class="orcid"><a href="https://orcid.org/0009-0003-0771-6626" target="_blank" rel="noopener">ORCID: 0009-0003-0771-6626</a></p>
+        <p>Graduate researcher in Artificial Intelligence at the University of the Cumberlands, based in Fort Worth, Texas, focused on the security and trustworthiness of AI systems deployed in healthcare and other critical infrastructure.</p>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="console-footer wrap">
+  <span>© 2026 Suresh Tamang</span>
+  <span class="mono">STATUS: ACTIVE</span>
+</footer>
+
+<script src="../scan.js"></script>
+</body>
+</html>
