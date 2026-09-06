@@ -441,6 +441,18 @@ main { padding-bottom: 96px; }
   text-transform: uppercase;
 }
 
+.headshot-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.headshot-frame.has-photo {
+  border-style: solid;
+}
+
 .about-body p { max-width: var(--measure); color: var(--ink-dim); }
 .about-body p + p { margin-top: 14px; }
 
