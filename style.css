@@ -454,6 +454,10 @@ main { padding-bottom: 96px; }
   border-style: solid;
 }
 
+.headshot-frame.has-photo .bracket {
+  display: none;
+}
+
 .about-body p { max-width: var(--measure); color: var(--ink-dim); }
 .about-body p + p { margin-top: 14px; }
 
